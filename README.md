@@ -66,11 +66,11 @@ Install the following libraries before running the project:
 - Matplotlib
 - PIL
 
-## Example Outputs
+## Model Performance
 
-- Preprocessed images saved in the `preprocessed/` folder.
-- Accuracy and loss plots from model training.
-- Real-time face detection and recognition displayed in the webcam interface.
+- We took 4000+ image to train it
+ 
+![Untitled](https://github.com/user-attachments/assets/093d0ece-619e-4b96-83dc-0197dffc4cac)
 
 ## Contributions
 
