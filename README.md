@@ -1,90 +1,82 @@
-# Real-Time-Face-Detection-and-Classification-Using-CNN-in-Colab
+# Real-Time Face Detection and Recognition with Custom CNN Model
 
-# Real-Time Face Detection and Classification Using CNN
-
-This project demonstrates how to build a real-time face detection and classification system using OpenCV, Haar Cascades, and a Convolutional Neural Network (CNN). The project includes face preprocessing, model training, and evaluation.
+This project implements a real-time face detection and recognition system using Haar cascades and a Convolutional Neural Network (CNN). The project includes preprocessing, model training, and real-time face recognition through a webcam interface. It is built in Google Colab.
 
 ## Features
 
-- **Face Detection:** Uses Haar Cascade Classifier for detecting faces in grayscale images.
-- **Data Preprocessing:** Automatically preprocesses detected faces to a uniform size (224x224).
-- **Model Training:** A CNN is implemented for face classification with real-time detection capabilities.
-- **Callbacks for Optimization:** Includes early stopping and model checkpointing to optimize training.
+- **Face Detection**: Uses Haar cascades to detect faces in images.
+- **Face Preprocessing**: Crops and resizes detected faces for uniform input to the model.
+- **CNN Training**: A custom CNN model is trained on the preprocessed data for face recognition.
+- **Real-Time Recognition**: Recognizes faces in a live video stream using a webcam.
 
-## How It Works
+## Project Workflow
 
-1. **Face Detection with Haar Cascade:**
-   - Detect faces in images from the dataset.
-   - Preprocess the detected faces by converting them to grayscale and resizing them to 224x224 pixels.
+1. **Data Preprocessing**:
+   - Faces are detected using Haar cascades.
+   - Detected faces are cropped, resized to 224x224 pixels, and saved for model training.
 
-2. **Dataset Preparation:**
-   - Preprocessed images are stored in folders corresponding to their class labels.
-   - The dataset is split into training and validation sets using TensorFlow's `ImageDataGenerator`.
+2. **Model Training**:
+   - A CNN is designed with layers for feature extraction and classification.
+   - The model is trained on the preprocessed face dataset with TensorFlow's `ImageDataGenerator` for data augmentation.
 
-3. **CNN Model:**
-   - A Sequential model with multiple convolutional layers, pooling layers, and dropout for regularization.
-   - Outputs a softmax probability distribution for classification.
+3. **Real-Time Recognition**:
+   - A webcam video feed is processed using JavaScript for real-time image capture.
+   - The trained CNN model predicts the class of detected faces.
+   - Predictions are displayed on the video feed overlay.
 
-4. **Training and Evaluation:**
-   - Model is trained on the preprocessed dataset with early stopping and model checkpointing.
-   - Validation data is used to monitor performance.
+## Technologies Used
+
+- **Google Colab**: For development and training.
+- **OpenCV**: For image processing and face detection.
+- **TensorFlow/Keras**: For building and training the CNN model.
+- **JavaScript**: For handling live webcam video streams.
+- **Python**: For the overall implementation.
+
+## How to Use
+
+1. Clone or download this repository.
+2. Open the `.ipynb` file in Google Colab.
+3. Prepare the dataset by organizing images into folders for each class.
+4. Update paths to your dataset and pre-trained model in the notebook.
+5. Run all cells sequentially:
+   - Preprocess the data.
+   - Train the CNN model.
+   - Start the real-time recognition interface.
+6. Point your webcam at a face to see live recognition results.
+
+## Directory Structure
+
+```
+project
+├── haarcascade_frontalface_default.xml  # Haar cascade XML for face detection
+├── Final_Model.h5                      # Pre-trained CNN model
+├── dataset/                            # Original dataset
+├── preprocessed/                       # Preprocessed face images
+├── notebook.ipynb                      # Main project notebook
+```
 
 ## Requirements
 
+Install the following libraries before running the project:
+
 - Python 3.7+
 - OpenCV
-- TensorFlow/Keras
-- Matplotlib
+- TensorFlow
 - NumPy
+- Matplotlib
+- PIL
 
-Install dependencies using:
-```bash
-pip install opencv-python tensorflow matplotlib numpy
-```
+## Example Outputs
 
-## File Structure
+- Preprocessed images saved in the `preprocessed/` folder.
+- Accuracy and loss plots from model training.
+- Real-time face detection and recognition displayed in the webcam interface.
 
-- `haar_cascade_face_detection.py`: Code for face detection and preprocessing.
-- `cnn_training.py`: Code for training the CNN model.
-- `data/`: Contains the original dataset.
-- `preprocessed_data/`: Stores the preprocessed dataset.
+## Contributions
 
-## Usage
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/real-time-face-detection-cnn.git
-   cd real-time-face-detection-cnn
-   ```
-
-2. Run face detection and preprocessing:
-   ```bash
-   python haar_cascade_face_detection.py
-   ```
-
-3. Train the model:
-   ```bash
-   python cnn_training.py
-   ```
-
-4. Evaluate the model or use it for real-time detection.
-
-## Results
-
-- Accuracy: Achieved X% accuracy on the validation set (update with your results).
-- Loss: Validation loss was minimized to X (update with your results).
-
-## Future Improvements
-
-- Use a pre-trained model like MobileNet or ResNet for better performance.
-- Extend the project to include real-time webcam integration.
-- Experiment with other datasets and architectures.
+Contributions are welcome! If you encounter issues or have suggestions, feel free to create an issue or pull request.
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
-
----
-
-Happy Coding! If you have any questions, feel free to open an issue or contact me!
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
